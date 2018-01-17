@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: passer
+      MYSQL_DATABASE: tete_de_luxe
+    volumes:
+      - ./db:/var/lib/mysql
+    ports:
+      - 3306:3306
+  php:
+    build: ./
+    ports:
+      - 3000:80
+    volumes:
+      - ./:/var/www/html
+    links:
+      - mysql
