@@ -7,4 +7,9 @@ class Authentification extends CI_Controller {
 	{
 		$this->load->view('auth/inscription');
 	}
+
+	public function connexion()
+	{
+		$this->load->view('auth/connexion');
+	}
 }
