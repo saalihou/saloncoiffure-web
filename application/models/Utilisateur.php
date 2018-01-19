@@ -35,4 +35,13 @@ class Utilisateur extends CI_Model {
     $this->session->user = $user;
     return true;
   }
+
+  public function majInfosPersos($prenoms, $nom) {
+    $this->db->where('email', $this->session->user->email)
+      ->set('prenoms', $prenoms)
+      ->set('nom', $nom)
+      ->update('users');
+    $this->session->user->prenoms = $prenoms;
+    $this->session->user->nom = $nom;
+  }
 }

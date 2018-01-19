@@ -56,3 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['inscription'] = 'authentification/inscription';
 $route['connexion'] = 'authentification/connexion';
 $route['deconnexion'] = 'authentification/deconnexion';
+
+$route['profil'] = 'profil/index';
