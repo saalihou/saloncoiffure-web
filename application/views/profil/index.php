@@ -28,10 +28,22 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Mot de passe</h4>
-          <?php if (validation_errors() && $formulaire === 'mot_de_passe'): ?>
-            <div class="alert alert-danger" role="alert">
-              <?=validation_errors();?>
-            </div>
+          <?php if ($formulaire === 'mot_de_passe'): ?>
+            <?php if (validation_errors()): ?>
+              <div class="alert alert-danger" role="alert">
+                <?=validation_errors();?>
+              </div>
+            <?php endif; ?>
+            <?php if (isset($error) && $error === 'INVALID_MDP'): ?>
+              <div class="alert alert-danger" role="alert">
+                Mot de passe actuel invalide
+              </div>
+            <?php endif; ?>
+            <?php if (isset($success)): ?>
+              <div class="alert alert-success" role="alert">
+                Mot de passe mis à jour avec succès
+              </div>
+            <?php endif; ?>
           <?php endif; ?>
           <form method="POST" action="<?=site_url('/profil')?>">
             <div class="form-group">

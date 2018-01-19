@@ -44,4 +44,16 @@ class Utilisateur extends CI_Model {
     $this->session->user->prenoms = $prenoms;
     $this->session->user->nom = $nom;
   }
+
+  public function majMdp($mdp, $nouveauMdp) {
+    $user = $this->db->get_where('users', ['email' => $this->session->user->email])->row();
+    if (!password_verify($mdp, $user->mdp)) {
+      return false;
+    } else {
+      $this->db->where('email', $this->session->user->email)
+        ->set('mdp', password_hash($nouveauMdp, PASSWORD_BCRYPT))
+        ->update('users');
+      return true;
+    }
+  }
 }
