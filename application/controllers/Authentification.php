@@ -31,6 +31,17 @@ class Authentification extends CI_Controller {
 
 	public function connexion()
 	{
-		$this->load->view('auth/connexion');
+		if ($this->input->method() === 'get') {
+			$this->load->view('auth/connexion');
+			return;
+		}
+		$email = $this->input->post('email');
+		$mdp = $this->input->post('mdp');
+		$status = $this->Utilisateur->connexion($email, $mdp);
+		if (!$status) {
+			$this->load->view('auth/connexion', ['error' => 'INVALID_LOGIN']);
+		} else {
+			redirect('/');
+		}
 	}
 }

@@ -23,4 +23,16 @@ class Utilisateur extends CI_Model {
       'etat' => 'NON_VERIFIE'
     ]);
   }
+
+  public function connexion($email, $mdp) {
+    $user = $this->db->get_where('users', ['email' => $email])->row();
+    if (!$user) {
+      return false;
+    }
+    if (!password_verify($mdp, $user->mdp)) {
+      return false;
+    }
+    $this->session->user = $user;
+    return true;
+  }
 }

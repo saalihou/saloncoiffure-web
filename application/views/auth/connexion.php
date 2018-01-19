@@ -13,14 +13,21 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Connexion</h4>
+          <?php if (isset($error)): ?>
+            <div class="alert alert-danger" role="alert">
+              <?php if ($error === 'INVALID_LOGIN'): ?>
+                Combinaison identifiant/mot de passe invalide
+              <?php endif; ?>
+            </div>
+          <?php endif; ?>
           <form method="POST" action="<?=site_url('/connexion')?>">
             <div class="form-group">
               <label>Login</label>
-              <input type="text" name="prenoms" class="form-control" />
+              <input type="text" name="email" class="form-control" />
             </div>
             <div class="form-group">
               <label>Mot de passe</label>
-              <input type="text" name="nom" class="form-control" />
+              <input type="password" name="mdp" class="form-control" />
             </div>
             <a href="#">Mot de passe oublié</a>
             <br />
