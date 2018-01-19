@@ -11,3 +11,26 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 </head>
 <body>
+  <nav class="navbar navbar-light mb-3" style="background-color: #E7E7E7;">
+    <ul class="nav nav-pills">
+      <a href="/" class="navbar-brand">NM Coiffure</a>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Réservation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Catalogue</a>
+      </li>
+      <?php if ($this->session->user): ?>
+        <li class="nav-item">
+          <a class="nav-link" href="/profil"><?=$this->session->user->prenoms?> (profil)</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/deconnexion">Déconnexion</a>
+        </li>
+      <?php else: ?>
+        <li class="nav-item">
+          <a class="nav-link" href="/connexion">Connexion</a>
+        </li>
+      <?php endif; ?>
+    </ul>
+  </nav>

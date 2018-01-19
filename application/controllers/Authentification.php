@@ -44,4 +44,10 @@ class Authentification extends CI_Controller {
 			redirect('/');
 		}
 	}
+
+	public function deconnexion()
+	{
+		$this->session->sess_destroy();
+		redirect('/');
+	}
 }
