@@ -56,4 +56,16 @@ class Utilisateur extends CI_Model {
       return true;
     }
   }
+
+  public function majRole($email, $role) {
+    $user = $this->db->get_where('users', ['email' => $email])->row();
+    if (!$user) {
+      return false;
+    } else {
+      $this->db->where('email', $email)
+        ->set('role', $role)
+        ->update('users');
+      return true;
+    }
+  }
 }

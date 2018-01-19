@@ -32,5 +32,10 @@
           <a class="nav-link" href="/connexion">Connexion</a>
         </li>
       <?php endif; ?>
+      <?php if ($this->session->user && $this->session->user->role === 'ADMIN'): ?>
+        <li class="nav-item">
+          <a class="nav-link" href="/administration">Panneau d'administration</a>
+        </li>
+      <?php endif; ?>
     </ul>
   </nav>

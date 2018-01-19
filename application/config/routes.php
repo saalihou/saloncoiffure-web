@@ -58,3 +58,6 @@ $route['connexion'] = 'authentification/connexion';
 $route['deconnexion'] = 'authentification/deconnexion';
 
 $route['profil'] = 'profil/index';
+
+$route['administration'] = 'administration/index';
+$route['administration/ajout'] = 'administration/ajouterAdmin';
