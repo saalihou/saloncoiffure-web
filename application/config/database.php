@@ -75,11 +75,11 @@ $query_builder = TRUE;
 
 
 $db['default'] = array(
-	'dsn'	=> isset($_ENV["CLEARDB_DATABASE_URL"]) ? $_ENV["CLEARDB_DATABASE_URL"] : '',
-	'hostname' => ENVIRONMENT !== 'production' ? 'mysql' : '',
-	'username' => ENVIRONMENT !== 'production' ? 'root' : '',
-	'password' => ENVIRONMENT !== 'production' ? 'passer' : '',
-	'database' => ENVIRONMENT !== 'production' ? 'sdc' : '',
+	'dsn'	=> isset($_ENV["DB_SDN"]) ? $_ENV["DB_SDN"] : '',
+	'hostname' => isset($_ENV["DB_HOST"]) ? $_ENV["DB_HOST"] : 'mysql',
+	'username' => isset($_ENV["DB_USER"]) ? $_ENV["DB_USER"] : 'root',
+	'password' => isset($_ENV["DB_PASS"]) ? $_ENV["DB_PASS"] : 'passer',
+	'database' => isset($_ENV["DB_NAME"]) ? $_ENV["DB_NAME"] : 'sdc',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
