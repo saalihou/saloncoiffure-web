@@ -74,7 +74,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
+	'dsn'	=> $_ENV["CLEARDB_DATABASE_URL"],
 	'hostname' => 'mysql',
 	'username' => 'root',
 	'password' => 'passer',
