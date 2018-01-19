@@ -75,11 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> $_ENV["CLEARDB_DATABASE_URL"],
-	'hostname' => 'mysql',
-	'username' => 'root',
-	'password' => 'passer',
-	'database' => 'sdc',
-	'dbdriver' => 'mysqli',
+	'hostname' => ENVIRONMENT !== 'production' ? 'mysql' : '',
+	'username' => ENVIRONMENT !== 'production' ? 'root' : '',
+	'password' => ENVIRONMENT !== 'production' ? 'passer' : '',
+	'database' => ENVIRONMENT !== 'production' ? 'sdc' : '',
+	'dbdriver' => ENVIRONMENT !== 'production' ? 'mysqli' : '',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
