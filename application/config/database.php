@@ -73,6 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+
 $db['default'] = array(
 	'dsn'	=> isset($_ENV["CLEARDB_DATABASE_URL"]) ? $_ENV["CLEARDB_DATABASE_URL"] : '',
 	'hostname' => ENVIRONMENT !== 'production' ? 'mysql' : '',
@@ -82,7 +83,7 @@ $db['default'] = array(
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
+	'db_debug' => true,
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',
@@ -94,3 +95,5 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+var_dump($db);
