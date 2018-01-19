@@ -31,6 +31,7 @@ class Authentification extends CI_Controller {
 
 	public function connexion()
 	{
+		$this->load->library('form_validation');
 		if ($this->input->method() === 'get') {
 			$this->load->view('auth/connexion');
 			return;

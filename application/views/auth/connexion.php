@@ -23,13 +23,15 @@
           <form method="POST" action="<?=site_url('/connexion')?>">
             <div class="form-group">
               <label>Login</label>
-              <input type="text" name="email" class="form-control" />
+              <input type="text" name="email" class="form-control" value="<?=set_value('email')?>" />
             </div>
             <div class="form-group">
               <label>Mot de passe</label>
               <input type="password" name="mdp" class="form-control" />
             </div>
             <a href="#">Mot de passe oublié</a>
+            -- 
+            <a href="/inscription">S'inscrire</a>
             <br />
             <button type="submit" class="btn btn-primary">Se Connecter</button>
           </form>
